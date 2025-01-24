@@ -8,7 +8,7 @@ export class BookingService {
   constructor(private prisma: PrismaService) {}
 
   async checkIn(dto: BookingDto) {
-    const { residentId, roomType, roomId, startDate, endDate } = dto;
+    const { residentId, capacity, roomId, startDate, endDate } = dto;
 
     const resident = await this.prisma.resident.findUnique({
       where: { id: residentId },
@@ -36,8 +36,8 @@ export class BookingService {
 
       if (!room) throw new BadRequestException('Selected room does not exist.');
 
-      if (room.type !== roomType)
-        throw new BadRequestException('Selected room type does not match the requested type.');
+      if (room.capacity !== capacity)
+        throw new BadRequestException('Selected room capacity does not match the requested.');
 
       if (!room.isAvailable && room.bookings.length >= room.capacity)
         throw new BadRequestException('Selected room is not available.');
@@ -48,7 +48,7 @@ export class BookingService {
     } else {
       room = await this.prisma.room.findFirst({
         where: {
-          type: roomType,
+          capacity,
           isAvailable: true,
           bookings: {
             none: {
@@ -161,7 +161,6 @@ export class BookingService {
     return floors.map((floor) => ({
       floorNumber: floor.number,
       rooms: floor.rooms.map((room) => ({
-        roomType: room.type,
         capacity: room.capacity,
         isAvailable: room.isAvailable,
         activeBookings: room.bookings.map((booking) => ({

@@ -15,7 +15,6 @@ export class RoomService {
 
     return this.prisma.room.create({
       data: {
-        type: dto.type,
         capacity: dto.capacity,
         isAvailable: true,
         floorId: dto.floorId,
@@ -80,7 +79,6 @@ export class RoomService {
       for (const roomType of roomTypes) {
         await this.prisma.room.create({
           data: {
-            type: `${roomType.capacity}-bed`,
             floorId: floor.id,
             capacity: roomType.capacity,
             amenities: [],
@@ -93,7 +91,6 @@ export class RoomService {
           Array.from({ length: 2 }, () => {
             return this.prisma.room.create({
               data: {
-                type: `${roomType.capacity}-bed`,
                 floorId: floor.id,
                 capacity: roomType.capacity,
                 amenities: [],

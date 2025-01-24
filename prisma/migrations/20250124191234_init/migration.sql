@@ -13,7 +13,6 @@ CREATE TABLE "Floor" (
 CREATE TABLE "Room" (
     "id" SERIAL NOT NULL,
     "floorId" INTEGER NOT NULL,
-    "type" TEXT NOT NULL,
     "capacity" INTEGER NOT NULL,
     "isAvailable" BOOLEAN NOT NULL DEFAULT true,
     "amenities" TEXT[],

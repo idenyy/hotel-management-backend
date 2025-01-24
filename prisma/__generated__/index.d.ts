@@ -2332,7 +2332,6 @@ export namespace Prisma {
   export type RoomMinAggregateOutputType = {
     id: number | null
     floorId: number | null
-    type: string | null
     capacity: number | null
     isAvailable: boolean | null
   }
@@ -2340,7 +2339,6 @@ export namespace Prisma {
   export type RoomMaxAggregateOutputType = {
     id: number | null
     floorId: number | null
-    type: string | null
     capacity: number | null
     isAvailable: boolean | null
   }
@@ -2348,7 +2346,6 @@ export namespace Prisma {
   export type RoomCountAggregateOutputType = {
     id: number
     floorId: number
-    type: number
     capacity: number
     isAvailable: number
     amenities: number
@@ -2371,7 +2368,6 @@ export namespace Prisma {
   export type RoomMinAggregateInputType = {
     id?: true
     floorId?: true
-    type?: true
     capacity?: true
     isAvailable?: true
   }
@@ -2379,7 +2375,6 @@ export namespace Prisma {
   export type RoomMaxAggregateInputType = {
     id?: true
     floorId?: true
-    type?: true
     capacity?: true
     isAvailable?: true
   }
@@ -2387,7 +2382,6 @@ export namespace Prisma {
   export type RoomCountAggregateInputType = {
     id?: true
     floorId?: true
-    type?: true
     capacity?: true
     isAvailable?: true
     amenities?: true
@@ -2483,7 +2477,6 @@ export namespace Prisma {
   export type RoomGroupByOutputType = {
     id: number
     floorId: number
-    type: string
     capacity: number
     isAvailable: boolean
     amenities: string[]
@@ -2511,7 +2504,6 @@ export namespace Prisma {
   export type RoomSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     floorId?: boolean
-    type?: boolean
     capacity?: boolean
     isAvailable?: boolean
     amenities?: boolean
@@ -2523,7 +2515,6 @@ export namespace Prisma {
   export type RoomSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     floorId?: boolean
-    type?: boolean
     capacity?: boolean
     isAvailable?: boolean
     amenities?: boolean
@@ -2533,7 +2524,6 @@ export namespace Prisma {
   export type RoomSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     floorId?: boolean
-    type?: boolean
     capacity?: boolean
     isAvailable?: boolean
     amenities?: boolean
@@ -2543,13 +2533,12 @@ export namespace Prisma {
   export type RoomSelectScalar = {
     id?: boolean
     floorId?: boolean
-    type?: boolean
     capacity?: boolean
     isAvailable?: boolean
     amenities?: boolean
   }
 
-  export type RoomOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "floorId" | "type" | "capacity" | "isAvailable" | "amenities", ExtArgs["result"]["room"]>
+  export type RoomOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "floorId" | "capacity" | "isAvailable" | "amenities", ExtArgs["result"]["room"]>
   export type RoomInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     floor?: boolean | FloorDefaultArgs<ExtArgs>
     bookings?: boolean | Room$bookingsArgs<ExtArgs>
@@ -2571,7 +2560,6 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       floorId: number
-      type: string
       capacity: number
       isAvailable: boolean
       amenities: string[]
@@ -3002,7 +2990,6 @@ export namespace Prisma {
   interface RoomFieldRefs {
     readonly id: FieldRef<"Room", 'Int'>
     readonly floorId: FieldRef<"Room", 'Int'>
-    readonly type: FieldRef<"Room", 'String'>
     readonly capacity: FieldRef<"Room", 'Int'>
     readonly isAvailable: FieldRef<"Room", 'Boolean'>
     readonly amenities: FieldRef<"Room", 'String[]'>
@@ -5632,7 +5619,6 @@ export namespace Prisma {
   export const RoomScalarFieldEnum: {
     id: 'id',
     floorId: 'floorId',
-    type: 'type',
     capacity: 'capacity',
     isAvailable: 'isAvailable',
     amenities: 'amenities'
@@ -5698,9 +5684,9 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'String'
+   * Reference to a field of type 'Boolean'
    */
-  export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -5712,9 +5698,9 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Boolean'
+   * Reference to a field of type 'String'
    */
-  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+  export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
     
 
 
@@ -5811,7 +5797,6 @@ export namespace Prisma {
     NOT?: RoomWhereInput | RoomWhereInput[]
     id?: IntFilter<"Room"> | number
     floorId?: IntFilter<"Room"> | number
-    type?: StringFilter<"Room"> | string
     capacity?: IntFilter<"Room"> | number
     isAvailable?: BoolFilter<"Room"> | boolean
     amenities?: StringNullableListFilter<"Room">
@@ -5822,7 +5807,6 @@ export namespace Prisma {
   export type RoomOrderByWithRelationInput = {
     id?: SortOrder
     floorId?: SortOrder
-    type?: SortOrder
     capacity?: SortOrder
     isAvailable?: SortOrder
     amenities?: SortOrder
@@ -5836,7 +5820,6 @@ export namespace Prisma {
     OR?: RoomWhereInput[]
     NOT?: RoomWhereInput | RoomWhereInput[]
     floorId?: IntFilter<"Room"> | number
-    type?: StringFilter<"Room"> | string
     capacity?: IntFilter<"Room"> | number
     isAvailable?: BoolFilter<"Room"> | boolean
     amenities?: StringNullableListFilter<"Room">
@@ -5847,7 +5830,6 @@ export namespace Prisma {
   export type RoomOrderByWithAggregationInput = {
     id?: SortOrder
     floorId?: SortOrder
-    type?: SortOrder
     capacity?: SortOrder
     isAvailable?: SortOrder
     amenities?: SortOrder
@@ -5864,7 +5846,6 @@ export namespace Prisma {
     NOT?: RoomScalarWhereWithAggregatesInput | RoomScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Room"> | number
     floorId?: IntWithAggregatesFilter<"Room"> | number
-    type?: StringWithAggregatesFilter<"Room"> | string
     capacity?: IntWithAggregatesFilter<"Room"> | number
     isAvailable?: BoolWithAggregatesFilter<"Room"> | boolean
     amenities?: StringNullableListFilter<"Room">
@@ -6019,7 +6000,6 @@ export namespace Prisma {
   }
 
   export type RoomCreateInput = {
-    type: string
     capacity: number
     isAvailable?: boolean
     amenities?: RoomCreateamenitiesInput | string[]
@@ -6030,7 +6010,6 @@ export namespace Prisma {
   export type RoomUncheckedCreateInput = {
     id?: number
     floorId: number
-    type: string
     capacity: number
     isAvailable?: boolean
     amenities?: RoomCreateamenitiesInput | string[]
@@ -6038,7 +6017,6 @@ export namespace Prisma {
   }
 
   export type RoomUpdateInput = {
-    type?: StringFieldUpdateOperationsInput | string
     capacity?: IntFieldUpdateOperationsInput | number
     isAvailable?: BoolFieldUpdateOperationsInput | boolean
     amenities?: RoomUpdateamenitiesInput | string[]
@@ -6049,7 +6027,6 @@ export namespace Prisma {
   export type RoomUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     floorId?: IntFieldUpdateOperationsInput | number
-    type?: StringFieldUpdateOperationsInput | string
     capacity?: IntFieldUpdateOperationsInput | number
     isAvailable?: BoolFieldUpdateOperationsInput | boolean
     amenities?: RoomUpdateamenitiesInput | string[]
@@ -6059,14 +6036,12 @@ export namespace Prisma {
   export type RoomCreateManyInput = {
     id?: number
     floorId: number
-    type: string
     capacity: number
     isAvailable?: boolean
     amenities?: RoomCreateamenitiesInput | string[]
   }
 
   export type RoomUpdateManyMutationInput = {
-    type?: StringFieldUpdateOperationsInput | string
     capacity?: IntFieldUpdateOperationsInput | number
     isAvailable?: BoolFieldUpdateOperationsInput | boolean
     amenities?: RoomUpdateamenitiesInput | string[]
@@ -6075,7 +6050,6 @@ export namespace Prisma {
   export type RoomUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     floorId?: IntFieldUpdateOperationsInput | number
-    type?: StringFieldUpdateOperationsInput | string
     capacity?: IntFieldUpdateOperationsInput | number
     isAvailable?: BoolFieldUpdateOperationsInput | boolean
     amenities?: RoomUpdateamenitiesInput | string[]
@@ -6244,21 +6218,6 @@ export namespace Prisma {
     _max?: NestedIntFilter<$PrismaModel>
   }
 
-  export type StringFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[] | ListStringFieldRefInput<$PrismaModel>
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringFilter<$PrismaModel> | string
-  }
-
   export type BoolFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolFilter<$PrismaModel> | boolean
@@ -6290,7 +6249,6 @@ export namespace Prisma {
   export type RoomCountOrderByAggregateInput = {
     id?: SortOrder
     floorId?: SortOrder
-    type?: SortOrder
     capacity?: SortOrder
     isAvailable?: SortOrder
     amenities?: SortOrder
@@ -6305,7 +6263,6 @@ export namespace Prisma {
   export type RoomMaxOrderByAggregateInput = {
     id?: SortOrder
     floorId?: SortOrder
-    type?: SortOrder
     capacity?: SortOrder
     isAvailable?: SortOrder
   }
@@ -6313,7 +6270,6 @@ export namespace Prisma {
   export type RoomMinOrderByAggregateInput = {
     id?: SortOrder
     floorId?: SortOrder
-    type?: SortOrder
     capacity?: SortOrder
     isAvailable?: SortOrder
   }
@@ -6324,7 +6280,15 @@ export namespace Prisma {
     capacity?: SortOrder
   }
 
-  export type StringWithAggregatesFilter<$PrismaModel = never> = {
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
     notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -6336,18 +6300,7 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     mode?: QueryMode
-    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedStringFilter<$PrismaModel>
-    _max?: NestedStringFilter<$PrismaModel>
-  }
-
-  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
+    not?: NestedStringFilter<$PrismaModel> | string
   }
 
   export type EnumGenderFilter<$PrismaModel = never> = {
@@ -6384,6 +6337,24 @@ export namespace Prisma {
 
   export type ResidentSumOrderByAggregateInput = {
     id?: SortOrder
+  }
+
+  export type StringWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedStringFilter<$PrismaModel>
+    _max?: NestedStringFilter<$PrismaModel>
   }
 
   export type EnumGenderWithAggregatesFilter<$PrismaModel = never> = {
@@ -6541,10 +6512,6 @@ export namespace Prisma {
     connect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
   }
 
-  export type StringFieldUpdateOperationsInput = {
-    set?: string
-  }
-
   export type BoolFieldUpdateOperationsInput = {
     set?: boolean
   }
@@ -6602,6 +6569,10 @@ export namespace Prisma {
     connectOrCreate?: BookingCreateOrConnectWithoutResidentInput | BookingCreateOrConnectWithoutResidentInput[]
     createMany?: BookingCreateManyResidentInputEnvelope
     connect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+  }
+
+  export type StringFieldUpdateOperationsInput = {
+    set?: string
   }
 
   export type EnumGenderFieldUpdateOperationsInput = {
@@ -6706,6 +6677,19 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -6720,9 +6704,11 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type NestedBoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
+  export type NestedEnumGenderFilter<$PrismaModel = never> = {
+    equals?: $Enums.Gender | EnumGenderFieldRefInput<$PrismaModel>
+    in?: $Enums.Gender[] | ListEnumGenderFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Gender[] | ListEnumGenderFieldRefInput<$PrismaModel>
+    not?: NestedEnumGenderFilter<$PrismaModel> | $Enums.Gender
   }
 
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
@@ -6740,21 +6726,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
-  }
-
-  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
-  }
-
-  export type NestedEnumGenderFilter<$PrismaModel = never> = {
-    equals?: $Enums.Gender | EnumGenderFieldRefInput<$PrismaModel>
-    in?: $Enums.Gender[] | ListEnumGenderFieldRefInput<$PrismaModel>
-    notIn?: $Enums.Gender[] | ListEnumGenderFieldRefInput<$PrismaModel>
-    not?: NestedEnumGenderFilter<$PrismaModel> | $Enums.Gender
   }
 
   export type NestedEnumGenderWithAggregatesFilter<$PrismaModel = never> = {
@@ -6793,7 +6764,6 @@ export namespace Prisma {
   }
 
   export type RoomCreateWithoutFloorInput = {
-    type: string
     capacity: number
     isAvailable?: boolean
     amenities?: RoomCreateamenitiesInput | string[]
@@ -6802,7 +6772,6 @@ export namespace Prisma {
 
   export type RoomUncheckedCreateWithoutFloorInput = {
     id?: number
-    type: string
     capacity: number
     isAvailable?: boolean
     amenities?: RoomCreateamenitiesInput | string[]
@@ -6841,7 +6810,6 @@ export namespace Prisma {
     NOT?: RoomScalarWhereInput | RoomScalarWhereInput[]
     id?: IntFilter<"Room"> | number
     floorId?: IntFilter<"Room"> | number
-    type?: StringFilter<"Room"> | string
     capacity?: IntFilter<"Room"> | number
     isAvailable?: BoolFilter<"Room"> | boolean
     amenities?: StringNullableListFilter<"Room">
@@ -6971,7 +6939,6 @@ export namespace Prisma {
   }
 
   export type RoomCreateWithoutBookingsInput = {
-    type: string
     capacity: number
     isAvailable?: boolean
     amenities?: RoomCreateamenitiesInput | string[]
@@ -6981,7 +6948,6 @@ export namespace Prisma {
   export type RoomUncheckedCreateWithoutBookingsInput = {
     id?: number
     floorId: number
-    type: string
     capacity: number
     isAvailable?: boolean
     amenities?: RoomCreateamenitiesInput | string[]
@@ -7022,7 +6988,6 @@ export namespace Prisma {
   }
 
   export type RoomUpdateWithoutBookingsInput = {
-    type?: StringFieldUpdateOperationsInput | string
     capacity?: IntFieldUpdateOperationsInput | number
     isAvailable?: BoolFieldUpdateOperationsInput | boolean
     amenities?: RoomUpdateamenitiesInput | string[]
@@ -7032,7 +6997,6 @@ export namespace Prisma {
   export type RoomUncheckedUpdateWithoutBookingsInput = {
     id?: IntFieldUpdateOperationsInput | number
     floorId?: IntFieldUpdateOperationsInput | number
-    type?: StringFieldUpdateOperationsInput | string
     capacity?: IntFieldUpdateOperationsInput | number
     isAvailable?: BoolFieldUpdateOperationsInput | boolean
     amenities?: RoomUpdateamenitiesInput | string[]
@@ -7064,14 +7028,12 @@ export namespace Prisma {
 
   export type RoomCreateManyFloorInput = {
     id?: number
-    type: string
     capacity: number
     isAvailable?: boolean
     amenities?: RoomCreateamenitiesInput | string[]
   }
 
   export type RoomUpdateWithoutFloorInput = {
-    type?: StringFieldUpdateOperationsInput | string
     capacity?: IntFieldUpdateOperationsInput | number
     isAvailable?: BoolFieldUpdateOperationsInput | boolean
     amenities?: RoomUpdateamenitiesInput | string[]
@@ -7080,7 +7042,6 @@ export namespace Prisma {
 
   export type RoomUncheckedUpdateWithoutFloorInput = {
     id?: IntFieldUpdateOperationsInput | number
-    type?: StringFieldUpdateOperationsInput | string
     capacity?: IntFieldUpdateOperationsInput | number
     isAvailable?: BoolFieldUpdateOperationsInput | boolean
     amenities?: RoomUpdateamenitiesInput | string[]
@@ -7089,7 +7050,6 @@ export namespace Prisma {
 
   export type RoomUncheckedUpdateManyWithoutFloorInput = {
     id?: IntFieldUpdateOperationsInput | number
-    type?: StringFieldUpdateOperationsInput | string
     capacity?: IntFieldUpdateOperationsInput | number
     isAvailable?: BoolFieldUpdateOperationsInput | boolean
     amenities?: RoomUpdateamenitiesInput | string[]

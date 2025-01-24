@@ -10,8 +10,8 @@ export class BookingDto {
   roomId?: number;
 
   @IsNotEmpty({ message: 'Room type is required' })
-  @IsString({ message: 'Room type must be a string' })
-  roomType: string;
+  @IsInt({ message: 'Capacity must be a number' })
+  capacity: number;
 
   @IsNotEmpty({ message: 'Start date is required' })
   @IsString({ message: 'Start date must be a string' })

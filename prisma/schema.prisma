@@ -20,7 +20,6 @@ model Room {
   floorId Int
   floor   Floor @relation(fields: [floorId], references: [id])
 
-  type        String
   capacity    Int
   isAvailable Boolean   @default(true)
   amenities   String[]
