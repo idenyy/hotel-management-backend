@@ -161,6 +161,7 @@ export class BookingService {
     return floors.map((floor) => ({
       floorNumber: floor.number,
       rooms: floor.rooms.map((room) => ({
+        id: room.id,
         capacity: room.capacity,
         isAvailable: room.isAvailable,
         activeBookings: room.bookings.map((booking) => ({
