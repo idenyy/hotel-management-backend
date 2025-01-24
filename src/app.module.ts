@@ -12,19 +12,23 @@ import { RoomService } from './modules/room/room.service';
 import { FloorService } from './modules/floor/floor.service';
 import { BookingModule } from '@/modules/booking/booking.module';
 import { ResidentModule } from '@/modules/resident/resident.module';
+import { ScheduleModule } from '@nestjs/schedule';
+import { BookingService } from '@/modules/booking/booking.service';
+import { BookingController } from '@/modules/booking/booking.controller';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
     }),
+    ScheduleModule.forRoot(),
     PrismaModule,
     RoomModule,
     FloorModule,
     BookingModule,
     ResidentModule,
   ],
-  controllers: [AppController, RoomController, FloorController],
-  providers: [AppService, RoomService, FloorService, PrismaService],
+  controllers: [AppController, RoomController, FloorController, BookingController],
+  providers: [AppService, RoomService, FloorService, PrismaService, BookingService],
 })
 export class AppModule {}

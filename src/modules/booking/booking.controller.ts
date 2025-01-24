@@ -21,6 +21,11 @@ export class BookingController {
     return this.bookingService.getAll();
   }
 
+  @Get('/schedule')
+  releaseExpiredBookings() {
+    return this.bookingService.releaseExpiredBookings();
+  }
+
   @Get('/residents')
   async findResidentsByLastName(@Query('lastName') lastName: string) {
     return this.bookingService.findResidents(lastName);

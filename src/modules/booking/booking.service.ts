@@ -1,6 +1,7 @@
 import { BadRequestException, ConflictException, Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { BookingDto } from '@/modules/booking/dto/booking.dto';
+import { Cron } from '@nestjs/schedule';
 
 @Injectable()
 export class BookingService {
@@ -170,5 +171,41 @@ export class BookingService {
         })),
       })),
     }));
+  }
+
+  @Cron('0,30 * * * *')
+  async releaseExpiredBookings() {
+    const now = new Date();
+
+    const expiredBookings = await this.prisma.booking.findMany({
+      where: {
+        endDate: { lt: now },
+      },
+      include: { room: true },
+    });
+
+    if (expiredBookings.length === 0) {
+      console.log('No expired bookings found.');
+      return;
+    }
+
+    console.log(`Found ${expiredBookings.length} expired bookings.`);
+
+    for (const booking of expiredBookings) {
+      await this.prisma.room.update({
+        where: { id: booking.roomId },
+        data: { isAvailable: true },
+      });
+
+      await this.prisma.booking.delete({
+        where: { id: booking.id },
+      });
+
+      console.log(
+        `Room with ID ${booking.roomId} has been released and booking with ID ${booking.id} deleted.`,
+      );
+    }
+
+    console.log('Expired bookings processed successfully.');
   }
 }
