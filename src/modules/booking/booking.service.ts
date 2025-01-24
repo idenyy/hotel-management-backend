@@ -10,6 +10,14 @@ export class BookingService {
   async checkIn(dto: BookingDto) {
     const { residentId, capacity, roomId, startDate, endDate } = dto;
 
+    const currentDate = new Date();
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+
+    if (start < currentDate) throw new BadRequestException('Start date cannot be in the past.');
+
+    if (end <= start) throw new BadRequestException('End date must be after the start date.');
+
     const resident = await this.prisma.resident.findUnique({
       where: { id: residentId },
       include: {
